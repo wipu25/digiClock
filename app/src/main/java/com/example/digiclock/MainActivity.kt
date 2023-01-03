@@ -39,7 +39,31 @@ class MainActivity : AppCompatActivity() {
             setupLayoutWithNewDigit(binding.minuteTenth,map)
         }
 
-        viewModel.startCounting()
+        viewModel.tenthHoursDisplayManager.digitDisplayLiveData.observe(this) {map ->
+            setupLayoutWithNewDigit(binding.hourTenth,map)
+        }
+
+        viewModel.digitHoursDisplayManager.digitDisplayLiveData.observe(this) {map ->
+            setupLayoutWithNewDigit(binding.hourDigit,map)
+        }
+
+        viewModel.playStateLiveData.observe(this) {
+            binding.start.apply {
+                if(it) {
+                    setImageResource(R.drawable.ic_baseline_pause)
+                } else {
+                    setImageResource(R.drawable.ic_baseline_play_arrow)
+                }
+            }
+        }
+
+        binding.start.setOnClickListener {
+            viewModel.switchState()
+        }
+
+        binding.reset.setOnClickListener {
+            viewModel.reset()
+        }
     }
 
     private fun setupLayoutWithNewDigit(binding: DigitNumberBinding, map: Map<Int, Int>){
