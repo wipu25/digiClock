@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Digital Clock"
+        android:icon="@drawable/ic_baseline_access_time_24"
+        android:id="@+id/digital_clock_fragment"
+        />
+
+    <item
+        android:title="Stopwatch"
+        android:icon="@drawable/ic_baseline_timer_24"
+        android:id="@+id/stop_watch_fragment"
+        />
+</menu>

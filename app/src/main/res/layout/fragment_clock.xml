@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/top_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/second_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <include
+            android:id="@+id/hour_tenth"
+            layout="@layout/digit_number"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/hour_digit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/hour_digit"
+            layout="@layout/digit_number"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/semi_colon"
+            app:layout_constraintStart_toEndOf="@id/hour_tenth"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/semi_colon"
+            android:layout_width="16dp"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:text=":"
+            android:textColor="@color/black"
+            android:textSize="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/minute_tenth"
+            app:layout_constraintStart_toEndOf="@id/hour_digit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/minute_tenth"
+            layout="@layout/digit_number"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/minute_digit"
+            app:layout_constraintStart_toEndOf="@id/semi_colon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/minute_digit"
+            layout="@layout/digit_number"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/minute_tenth"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/second_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_timer">
+
+        <include
+            android:id="@+id/second_tenth"
+            layout="@layout/digit_number"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/second_digit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/second_digit"
+            layout="@layout/digit_number"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/second_tenth"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
