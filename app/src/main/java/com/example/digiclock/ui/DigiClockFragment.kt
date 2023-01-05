@@ -1,6 +1,8 @@
 package com.example.digiclock.ui
 
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.digiclock.arch.MainActivityViewModel
 import com.example.digiclock.databinding.FragmentClockBinding
+import com.mikhaellopez.circularprogressbar.CircularProgressBar
 
 class DigitalClockFragment : Fragment() {
 
@@ -64,5 +67,9 @@ class DigitalClockFragment : Fragment() {
         }
 
         viewModel.getSystemClock()
+
+        viewModel.secondDigitalClockLiveData.observe(viewLifecycleOwner) {
+            binding.circularProgressBar.progress = it.times(100).div(60f)
+        }
     }
 }

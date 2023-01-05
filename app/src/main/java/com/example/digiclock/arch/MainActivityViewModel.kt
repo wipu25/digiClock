@@ -31,6 +31,9 @@ class MainActivityViewModel : ViewModel() {
     val tenthHoursDigitalClockDisplayManager = DigitDisplayManager()
     val digitHoursDigitalClockDisplayManager = DigitDisplayManager()
 
+    private val _secondDigitalClockLiveData = MutableLiveData(0)
+    val secondDigitalClockLiveData = _secondDigitalClockLiveData
+
     private var index = 0
 
     init {
@@ -54,10 +57,12 @@ class MainActivityViewModel : ViewModel() {
         viewModelScope.launch {
             while (true) {
                 val calendar = Calendar.getInstance()
+                val calendarSecond = calendar.get(Calendar.SECOND)
+                _secondDigitalClockLiveData.value = calendarSecond
                 setDigitalClock(
                     calendar.get(Calendar.HOUR),
                     calendar.get(Calendar.MINUTE),
-                    calendar.get(Calendar.SECOND)
+                    calendarSecond
                 )
                 delay(1000)
             }
